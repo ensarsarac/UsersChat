@@ -1,0 +1,36 @@
+﻿@model MessageAndDraftViewModel
+@{
+    ViewData["Title"] = "SendDraft";
+    ViewData["Text"] = "Taslak İçeriği";
+    Layout = "~/Views/Message/Index.cshtml";
+}
+
+<div class="col-md-12 p-3">
+    <form method="post">
+        <div class="card card-primary card-outline">
+            <div class="card-header">
+                <h3 class="card-title">Yeni Mesaj Gönder</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+                <div class="form-group">
+                    <input class="form-control" name="ToUser" value="@Model.DraftListViewModel.ReceiveEmail" placeholder="Kime:">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" name="Subject" value="@Model.DraftListViewModel.Subject" placeholder="Konu:">
+                </div>
+                <div class="form-group">
+                    <textarea id="compose-textarea" name="Message" class="form-control" placeholder="Mesaj:" style="height: 300px;">@Model.DraftListViewModel.Content</textarea>
+                </div>
+
+            </div>
+            <div class="card-footer">
+                <div class="float-right">
+                    @* <button type="button" class="btn btn-default"><i class="fas fa-pencil-alt"></i> Taslaklara Kaydet</button> *@
+                    <button type="submit" class="btn btn-primary"><i class="far fa-envelope"></i> Gönder</button>
+                </div>
+                @* <button type="reset" class="btn btn-default"><i class="fas fa-times"></i> İptal Et</button> *@
+            </div>
+        </div>
+    </form>
+</div>
